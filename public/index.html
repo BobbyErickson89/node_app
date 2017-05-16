@@ -13,14 +13,37 @@
         </div>
         <ul class="nav navbar-nav">
           <li class="active"><a href="#">Home</a></li>
-          <li><a href="#">Page 1</a></li>
-          <li><a href="#">Page 2</a></li>
-          <li><a href="#">Page 3</a></li>
+          <li><a href="#">My Workouts</a></li>
+          <li><a href="#">Edit</a></li>
+          <li><a href="#">Account</a></li>
         </ul>
       </div>
     </nav>
   </header>
   <body>
-    <div>Hello World!</div>
+    <form>
+      <!-- Exercise Type -->
+      <div class="form-group">
+        <div class="col-xs-3">
+          <label for="exercise-type">Exercise Type</label>
+          <select class="form-control" id="exercise-type">
+            <option disabled selected value style="display:none"></option>
+            <option>Chest</option>
+            <option>Back</option>
+            <option>Triceps</option>
+            <option>Biceps</option>
+            <option>Other</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Exercise -->
+      <div class="form-group">
+        <div class="col-xs-3">
+          <label for="exercise">Exercise</label>
+          <input class="form-control" id="exercise" type="text" />
+        </div>
+      </div>
+    </form>
   </body>
 </html>
