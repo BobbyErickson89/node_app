@@ -10,11 +10,14 @@ var connection = mysql.createConnection({
   database: 'testdb'
 });
 
+// Enabling our js and css folders in /public
+app.use(express.static(__dirname + '/public'));
+
 //Routes
 app.get('/', function(req, res){
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
-app.listen(3000, function(){
-  console.log('App running on port 3000');
+app.listen(6900, function(){
+  console.log('App running on port 6900');
 });
