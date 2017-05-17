@@ -23,7 +23,7 @@
   <body>
     <form>
       <!-- Exercise Type -->
-      <div class="form-group">
+      <div class="form-group row">
         <div class="col-xs-3">
           <label for="exercise-type">Exercise Type</label>
           <select class="form-control" id="exercise-type">
@@ -38,12 +38,38 @@
       </div>
 
       <!-- Exercise -->
-      <div class="form-group">
+      <div class="form-group row">
         <div class="col-xs-3">
           <label for="exercise">Exercise</label>
           <input class="form-control" id="exercise" type="text" />
         </div>
       </div>
+
+      <!-- Sets -->
+      <div class="form-group row">
+        <div class="col-xs-3">
+          <label for="sets">Sets</label>
+          <input class="form-control" id="sets" type="text" />
+        </div>
+      </div>
+
+      <!-- Reps -->
+      <div class="form-group row">
+        <div class="col-xs-3">
+          <label for="reps">Reps/Set</label>
+          <input class="form-control" id="reps" type="text" />
+        </div>
+      </div>
+
+      <!-- Weight -->
+      <div class="form-group row">
+        <div class="col-xs-3">
+          <label for="weight">Weight</label>
+          <input class="form-control" id="weight" type="text" />
+        </div>
+      </div>
+
+      <button type="submit" class="btn btn-primary">Submit</button>
     </form>
   </body>
 </html>
