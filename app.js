@@ -24,7 +24,6 @@ app.get('/', function(req, res){
 
 // POST Routes
 app.post('/post_exercise', function(req, res){
-  console.log(req.body);
   res.send('complete');
 })
 

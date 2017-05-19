@@ -15,10 +15,6 @@ $('#exercise-submit').click(function(e){
     data: JSON.stringify(form_data),
     contentType: "application/json",
     cache: false,
-    complete: function(){
-      console.log(form_data);
-      console.log('process complete');
-    },
     success: function(data){
       console.log('success!');
     },
