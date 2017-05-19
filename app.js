@@ -24,7 +24,26 @@ app.get('/', function(req, res){
 
 // POST Routes
 app.post('/post_exercise', function(req, res){
-  res.send('complete');
+  var data = req.body;
+  var sql = "INSERT INTO exercises SET ?";
+  var values = {
+    name: data.exercise,
+    type: data.exercise_type,
+    sets: Number(data.sets),
+    reps: Number(data.reps),
+    weight: Number(data.weight)
+  }
+
+  connection.query(sql, values, function(err){
+    if(!err){
+      res.send('Exercise added!');
+    }
+    else {
+      throw err;
+    }
+  });
+
+  connection.end();
 })
 
 app.listen(6900, function(){
