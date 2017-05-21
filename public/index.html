@@ -1,11 +1,13 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="schedule">
   <head>
     <meta charset="utf-8">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
     <title>Node App</title>
   </head>
+
   <header>
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -21,7 +23,22 @@
       </div>
     </nav>
   </header>
+
   <body>
+
+    <section>
+      <ul class="nav nav-pills">
+        <li><a href="#">Sunday</a></li>
+        <li><a href="#">Monday</a></li>
+        <li><a href="#">Tuesday</a></li>
+        <li><a href="#">Wednesday</a></li>
+        <li><a href="#">Thursday</a></li>
+        <li><a href="#">Friday</a></li>
+        <li><a href="#">Saturday</a></li>
+      </ul>
+    </section>
+
+
     <form>
       <!-- Exercise Type -->
       <div class="form-group row">
@@ -74,4 +91,5 @@
     </form>
   </body>
   <script src="js/main.js"></script>
+  <script src="js/schedule.js"></script>
 </html>

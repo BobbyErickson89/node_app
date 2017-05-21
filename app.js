@@ -19,6 +19,17 @@ app.use(express.static(__dirname + '/public'));
 
 // GET Routes
 app.get('/', function(req, res){
+
+  connection.query("SELECT * FROM `exercises`", function(err, results){
+    connection.end();
+    if(!err){
+      console.log(results);
+      return results;
+    } else {
+      throw err;
+    }
+  });
+
   res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
