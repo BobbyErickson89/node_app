@@ -1,3 +1,1 @@
-(function(){
-  var app = angular.module('schedule', []);
-});
+var app = angular.module('schedule', []);
