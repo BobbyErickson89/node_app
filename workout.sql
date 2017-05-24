@@ -23,12 +23,14 @@ DROP TABLE IF EXISTS `exercises`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `exercises` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(50) DEFAULT NULL,
   `type` varchar(30) DEFAULT NULL,
   `sets` int(11) DEFAULT NULL,
   `reps` int(11) DEFAULT NULL,
   `weight` int(11) DEFAULT NULL,
-  `day` varchar(30) DEFAULT NULL
+  `day` varchar(30) DEFAULT NULL,
+  PRIMARY KEY (id)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -38,7 +40,7 @@ CREATE TABLE `exercises` (
 
 LOCK TABLES `exercises` WRITE;
 /*!40000 ALTER TABLE `exercises` DISABLE KEYS */;
-INSERT INTO `exercises` VALUES ('curls','Biceps',3,10,30,NULL),('curls','Biceps',3,10,30,NULL);
+INSERT INTO `exercises` VALUES (1,'curls','Biceps',3,10,30,'Monday'),(2,'curls','Biceps',3,10,30,'Tuesday');
 /*!40000 ALTER TABLE `exercises` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
