@@ -1,50 +1,62 @@
 var express = require('express');
-var app = express();
 var path = require('path');
 var mysql = require('mysql');
 var bodyParser = require('body-parser');
+var cookieParser = require('cookie-parser');
+var logger = require('morgan');
+var cors = require('cors');
+var Tasks = require('./api/Tasks');
+var app = express();
 
-var connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: '',
-  database: 'workout'
-});
+// view and public folder set-up
+app.use(express.static(path.join(__dirname, 'views')));
+app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(cors());
+app.use(logger('dev'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
+app.use(cookieParser());
 // Enabling our js and css folders in /public
-app.use(express.static(__dirname + '/public'));
 
-// GET Routes
-app.get('/', function(req, res){
-  res.sendFile(path.join(__dirname + '/public/index.html'));
+app.use('/api/tasks', Tasks);
+// catch 404 and forward to error handler
+app.use(function(req, res, next){
+  var err = new Error('Not Found');
+  err.status = 404;
+  next(err);
 });
 
-// POST Routes
-app.post('/post_exercise', function(req, res){
-  var data = req.body;
-  var sql = "INSERT INTO exercises SET ?";
-  var values = {
-    name: data.exercise,
-    type: data.exercise_type,
-    sets: Number(data.sets),
-    reps: Number(data.reps),
-    weight: Number(data.weight)
-  }
 
-  connection.query(sql, values, function(err){
-    if(!err){
-      res.send('Exercise added!');
-    }
-    else {
-      throw err;
-    }
-  });
+// error handlers
+// development error handler
+// will print stacktrace
+if (app.get('env') === 'development') {
+    app.use(function(err, req, res, next) {
+        res.status(err.status || 500);
+        res.render('error', {
+            message: err.message,
+            error: err
+        });
+    });
+}
+// production error handler
+// no stacktraces leaked to user
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500);
+    res.render('error', {
+        message: err.message,
+        error: {}
+    });
+});
 
-  connection.end();
-})
+// Routes
+app.get('/', function(req, res){
+  res.sendFile(path.join(__dirname + '/views/index.html'));
+});
+
 
 app.listen(6900, function(){
   console.log('App running on port 6900');

@@ -10,7 +10,7 @@ $('#exercise-submit').click(function(e){
   }
 
   $.ajax({
-    url: "/post_exercise",
+    url: "/api/tasks",
     type: "POST",
     data: JSON.stringify(form_data),
     contentType: "application/json",
