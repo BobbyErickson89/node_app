@@ -1,8 +1,9 @@
 var app = angular.module('schedule', []);
 
 $.ajax({
-  url: "/test",
+  url: "/api/tasks",
   type: "GET",
+  contentType: "application/json",
   success: function(data){
     console.log(data);
   },
