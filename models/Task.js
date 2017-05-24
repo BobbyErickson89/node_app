@@ -7,16 +7,16 @@ var Task = {
   getTaskById: function(id, callback){
     return db.query("SELECT * FROM exercises WHERE id = ?", [id], callback);
   },
-  addTask: function(Task, callback){
-    var sql = "INSERT INTO exercises VALUES(?,?,?,?,?)"
+  addTask: function(data, callback){
+    var sql = "INSERT INTO `exercises` (`name`, `type`, `sets`, `reps`, `weight`) VALUES(?,?,?,?,?)"
     var values = [
-      Task.name,
-      Task.type,
-      Task.sets,
-      Task.reps,
-      Task.weight,
-      Task.day
+      data.exercise,
+      data.exercise_type,
+      data.sets,
+      data.reps,
+      data.weight
     ];
+
     return db.query(sql, values, callback);
   }
 };
