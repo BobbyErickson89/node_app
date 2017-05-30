@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
 
-    <script src="js/schedule.js"></script>
+    <link rel="stylesheet" href="css/main.css" />
     <title>Node App</title>
   </head>
 
@@ -29,7 +29,7 @@
   <body>
 
     <section ng-controller="ExerciseCtrl">
-      <ul class="nav nav-pills">
+      <ul class="nav nav-pills center-pills">
         <li><a ng-click="show('Sunday')" href="#">Sunday</a></li>
         <li><a ng-click="show('Monday')" href="#">Monday</a></li>
         <li><a ng-click="show('Tuesday')" href="#">Tuesday</a></li>
@@ -39,9 +39,43 @@
         <li><a ng-click="show('Saturday')" href="#">Saturday</a></li>
       </ul>
 
-      <ul ng-repeat="exercise in exercises | filter: {day:filterDay}">
+      <ul ng-repeat="exercise in exercises | filter: {day:filterDay}" class="exercise-list">
         <li>
-          {{exercise}}
+          <div class="exercise-attr">
+            <div>
+              Name
+            </div>
+            <span>
+              {{exercise.name}}
+            </span>
+          </div>
+
+          <div class="exercise-attr">
+            <div>
+              Sets
+            </div>
+            <span>
+              {{exercise.sets}}
+            </span>
+          </div>
+
+          <div class="exercise-attr">
+            <div>
+              Reps
+            </div>
+            <span>
+              {{exercise.reps}}
+            </span>
+          </div>
+
+          <div class="exercise-attr">
+            <div>
+              Weight
+            </div>
+            <span>
+              {{exercise.weight}}
+            </span>
+          </div>
         </li>
       </ul>
     </section>
@@ -98,5 +132,6 @@
     </form>
   </body>
   <script src="js/main.js"></script>
+  <script src="js/schedule.js"></script>
 
 </html>
